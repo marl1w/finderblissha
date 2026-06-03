@@ -39,7 +39,9 @@ class BlissClientAsync:
     async def _ensure_session(self):
         """Ensure aiohttp session is alive."""
         if self._session is None or self._session.closed:
-            self._session = aiohttp.ClientSession()
+            # Finder's auth server rejects aiohttp's default User-Agent.
+            # See GitHub issue #4.
+            self._session = aiohttp.ClientSession(headers={"User-Agent": "okhttp/4.9.3"})
 
     async def close(self):
         """Close WebSocket and HTTP session."""
