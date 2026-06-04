@@ -7,4 +7,4 @@ DEFAULT_SCAN_INTERVAL = 60  # seconds
 CONF_USERNAME = "username"
 CONF_PASSWORD = "password"
 
-PLATFORMS = ["sensor", "climate"]
+PLATFORMS = ["sensor", "climate", "select"]
